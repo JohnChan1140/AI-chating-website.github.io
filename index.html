@@ -1,13 +1,39 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>input form</title>
-    </head>
-    <body>
-        
-        <form action="">
-            <label for="input">input chat:</label>
-            <input type="text" id="input" name="input" placeholder="Hi, nice to meet you">
-        </form>
+<head>
+    <title>Form Example</title>
+    <script>
+        function submitForm() {
+            // Get the form element
+            var form = document.getElementById("myForm");
 
-    </body>
+            // Get the input values
+            var name = form.elements["name"].value;
+            var email = form.elements["email"].value;
+            var message = form.elements["message"].value;
+
+            // Do something with the form data
+            console.log("Name: " + name);
+            console.log("Email: " + email);
+            console.log("Message: " + message);
+
+            // Prevent the form from submitting
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form id="myForm" onsubmit="return submitForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
 </html>
